@@ -1,2 +1,2 @@
-# codechef-solution
-Here exists my codechef solutions.
+# codechef-codeforces-solution
+Here exists my codechef & codeforces solutions.
