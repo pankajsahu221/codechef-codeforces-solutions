@@ -3,7 +3,7 @@ using namespace std;
 int mpcost;
 bool visited[100005];
 vector<int>adj[100005];
-int val[100005];
+int val[100005],res[100005];
 
 void dfs(int curr){
     visited[curr]=true;
@@ -31,12 +31,12 @@ int main(){
    for(int i=1; i<=n; i++){
        cin>>val[i];
    }
-   int ph[k+2];
+   int ph[40];
    for(int i=1; i<=k; i++){
        
       cin>>ph[i];
    }
-   int phcost[k+2];
+   int phcost[40];
    for(int i=1; i<=k; i++){
       cin>>phcost[i];
    }
@@ -49,7 +49,7 @@ int main(){
       
       bank+=phcost[a];
    }
-   int res[n+2]={0};
+   memset(res,0,sizeof(res));
    for(int i=1; i<=n; i++){
       mpcost=0;
       memset(visited,false,sizeof(visited));
