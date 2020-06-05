@@ -1,3 +1,4 @@
+//for great understanding of inversion http://pavelsimo.blogspot.com/2012/09/counting-inversions-in-array-using-BIT.html
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
