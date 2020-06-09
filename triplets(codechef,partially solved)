@@ -1,0 +1,61 @@
+//the solution is partially solved I couldn't figure out why its giving ac to last subtasks but not to the first two subtasks.
+//while the brute force approach which is O(n^3) is giving ac to fist two subtast but tle in other subtasks.
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define endl "\n"
+#define pb push_back 
+#define mk make_pair 
+#define mod 1000000007 
+
+int main() {
+    ll t;
+    cin>>t;
+    
+    while(t--){
+        ll la,lb,lc,sum=0;
+        cin>>la>>lb>>lc;
+        vector<ll>a,b,c;
+        ll num; 
+        
+        for(ll i=0; i<la; i++){
+             cin>>num;  a.push_back(num);
+        }
+        for(ll i=0; i<lb; i++){
+             cin>>num;  b.push_back(num);
+        }
+        for(ll i=0; i<lc; i++){
+             cin>>num;  c.push_back(num);
+        }
+        sort(a.begin(),a.end());
+       // sort(b.begin(),b.end());
+        sort(c.begin(),c.end());
+        
+        ll cnta[lb+2],cntc[lb+2];
+        for(int i=0; i<b.size(); i++){
+            cnta[i]=upper_bound(a.begin(),a.end(),b[i])-a.begin() ;
+            
+            cntc[i]=upper_bound(c.begin(),c.end(),b[i])-c.begin() ;
+        }
+        
+        ll arrsi[la+2]={0},crrsi[lc+2]={0};
+        arrsi[0]=a[0];  crrsi[0]=c[0];
+        
+        for(ll i=1; i<a.size(); i++){
+            arrsi[i]=arrsi[i-1]+a[i];
+        }
+        for(ll i=1; i<c.size(); i++){
+            crrsi[i]=crrsi[i-1]+c[i];
+        }
+        
+        for(ll i=0; i<b.size(); i++){
+            
+            sum+=(((arrsi[cnta[i]-1]+(b[i]*cnta[i]) )%mod)*((crrsi[cntc[i]-1]+(b[i]*cntc[i]))%mod))%mod;
+            
+        }
+        
+        cout<<sum%mod<<endl;
+    }
+
+}
