@@ -58,7 +58,7 @@ int main()
             temp>>=1;
         }
         int j;
-        for(j=3; j*j<=temp; j+=2) {
+        for(j=3; j*j<=temp; j+=2) {      //we can also write j<=sqrt(temp)
             while(temp%j==0)        {
                 v[i].push_back(j);
                 temp/=j;
